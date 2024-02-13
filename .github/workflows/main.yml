@@ -19,6 +19,7 @@ jobs:
           host:  ${{ secrets.SSH_HOST }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}  # Aqui está a chave privada SSH
          # password: ${{ secrets.SSH_PASSWORD_PRIVATE_KEY }}
+          port: 443
           script: |
             cd /home/gerador_senhas
             git pull origin main
