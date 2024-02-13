@@ -11,15 +11,16 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2.5.0
+        uses: actions/checkout@v2
 
       - name: SSH into VM and pull code
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.VM_HOST }}
+          host: exemplo.com  # Substitua "exemplo.com" pelo seu nome de domínio
           username: ${{ secrets.VM_USERNAME }}
-          password: ${{ secrets.VM_PASSWORD }}
-         # port: 443  # Porta SSH
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
+          port: 443  # Porta SSH
           script: |
             cd /home/gerador_senhas
             git pull origin main
