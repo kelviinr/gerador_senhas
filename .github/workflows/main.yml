@@ -16,7 +16,7 @@ jobs:
       - name: SSH into VM and pull code
         uses: appleboy/ssh-action@master
         with:
-          host:  ${{ secrets.VM_HOST }}
+          host:  ${{ secrets.SSH_HOST }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}  # Aqui está a chave privada SSH
           password: ${{ secrets.SSH_PASSWORD_PRIVATE_KEY }}
           script: |
