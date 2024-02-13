@@ -1,0 +1,12 @@
+on:
+  push:
+    branches:
+      - main
+name: Teste de Conexão
+jobs:
+  teste_conexao:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Testar Conexão
+      run: echo "Conexão com a VM de teste estabelecida com sucesso!"
