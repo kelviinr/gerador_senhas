@@ -16,9 +16,9 @@ jobs:
       - name: SSH into VM and pull code
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secretsVMHOST }}
-          username: ${{ secretsVMUSERNAME }}
-          password: ${{ secretsVMPASSWORD }}
+          host: ${{ secrets.VM_HOST }}
+          username: ${{ secrets.VM_USERNAME }}
+          password: ${{ secrets.VM_PASSWORD }}
           port: 443  # Porta SSH
           script: |
             cd /home/gerador_senhas
