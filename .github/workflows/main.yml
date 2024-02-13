@@ -1,12 +1,25 @@
+name: Update Website on VM
+
 on:
   push:
     branches:
-      - main
-name: Teste de Conexão
+      - main  # Ou o nome do seu branch principal
+
 jobs:
-  teste_conexao:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Testar Conexão
-      run: echo "Conexão com a VM de teste estabelecida com sucesso!"
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: SSH into VM and pull code
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secretsVMHOST }}
+          username: ${{ secretsVMUSERNAME }}
+          password: ${{ secretsVMPASSWORD }}
+          port: 443  # Porta SSH
+          script: |
+            cd /home/gerador_senhas
+            git pull origin main
