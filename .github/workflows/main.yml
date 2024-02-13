@@ -18,8 +18,7 @@ jobs:
         with:
           host: exemplo.com  # Substitua "exemplo.com" pelo seu nome de domínio
           username: ${{ secrets.VM_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          passphrase: ${{ secrets.SSH_PASSPHRASE }}
+          key: ${{ secrets.SSH_PUBLIC_KEY }}
           port: 443  # Porta SSH
           script: |
             cd /home/gerador_senhas
